@@ -68,5 +68,3 @@
 #     return ml[0], ml[-1]
 # print(f('hello'))
 
-popoxutyun
-property
