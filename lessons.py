@@ -69,3 +69,4 @@
 # print(f('hello'))
 
 popoxutyun
+property
