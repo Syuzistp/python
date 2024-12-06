@@ -7,8 +7,4 @@ def josephus(n, k):
         ans.append(n.pop(i))
     return ans
 
-
-
-
-
-if _
+print("hello world")
