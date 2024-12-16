@@ -1,0 +1,10 @@
+apple
+future
+elephant
+telephone
+tree
+world
+jacket
+car
+picture
+bag
