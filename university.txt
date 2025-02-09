@@ -1,0 +1,10 @@
+Harvard University    USA    1636    21000  
+University of Oxford    UK    1096    26000  
+Stanford University    USA    1885    17000  
+MIT    USA    1861    11500  
+University of Cambridge    UK    1209    24500  
+ETH Zurich    Switzerland    1855    24000  
+National University    Singapore    1905    42000  
+University of Toronto    Canada    1827    97000  
+Tsinghua University    China    1911    36000  
+University of Melbourne    Australia    1853    52000  

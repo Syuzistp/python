@@ -1,0 +1,9 @@
+James Smith 30 male Doctor
+Mary Brown 25 female Designer
+Robert Williams 22 male Pilot
+Anna Miller 20 female Painter
+Michael Davis 40 male Policeman
+Elizabeth Lee 24 female Nurse
+John Taylor 32 male Pilot
+Alice Harris 45 female Doctor
+Daniel Turner 31 male Designer

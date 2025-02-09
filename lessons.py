@@ -179,28 +179,269 @@
 
 
 
-def get_tasks():
-    md = {
-        'TO DO': ['Task 2', 'Task 4', 'Task5'],
-        'IN PROGRESS': ['Task 1', 'Task 6'],
-        'REVIEW': ['Task 3'],
-        'DONE': []
-    }
-    return md
+# md = {
+#     'TO DO': ['Task 2', 'Task 4', 'Task5'],
+#     'IN PROGRESS': ['Task 1', 'Task 6'],
+#     'REVIEW': ['Task 3'],
+#     'DONE': []
+#     }
 
-print("Which tasks do you want to see?")
-answer1 = input("TO DO, IN PROGRESS, REVIEW, DONE or ALL: ").upper()
-for k,v in get_tasks().items():
-    if answer1 == k:
-        print(get_tasks()[k])
-    elif answer1 == "ALL":
-        print(get_tasks()[k])
-        
-print("Which tasks do you want to deal with?")
-answer2 = input("TO DO, IN PROGRESS, REVIEW or DONE: ")
-for k,v in get_tasks().items():
-    if answer2 == k:
-        print(get_tasks()[k])
-        answer2_2 = input('Choose Task: ')
 
+# print("Which tasks do you want to see?")
+# answer1 = input("TO DO, IN PROGRESS, REVIEW, DONE or ALL: ").upper()
+# if answer1 == "ALL":
+#     for k,v in md.items():
+#         print(f"{k} : {v}")
+# else:
+#     print(f"{answer1} : {md[answer1]}")
+
+# print("Which tasks do you want to deal with?")
+# answer2 = input("TO DO, IN PROGRESS, REVIEW or DONE: ").upper()
+# print(f"{answer2} : {md[answer2]}")
+# answer2_2 = input('Choose Task: ')
+
+# answer3 = input("Where to move: ").upper() 
+# if answer2.upper() == answer3.upper():
+#     print(f"{answer2_2} in {answer2}")
+#     answer3 = input("Choose another task: ")
+# else:
+#     md[answer2].remove(answer2_2)
+#     md[answer3].append(answer2_2)
+# print(md)
+
+# filname = 'tasks.txt'
+# with open(filname, 'w') as file:
+#     for k, v in md.items():
+#         file.write(k + "    " + "\n")
+#         for i in v:
+#             file.write(i + "    " + "\n")
+
+
+##############################################
+
+
+# class Human:
+#     def __init__(self, n, s, b):
+#         self.name = n
+#         self.surname = s
+#         self.birth_year = b
+#     def speak(self, mstr = "hello"):
+#         print(mstr)
+#     def __str__(self):
+#         return self.name + " " + self.surname
+
+# h1 = Human("John", "Smith", 1999)
+# print(h1)
+
+##############################################
+
+
+# class Human:
+#     def __init__(self, n):
+#         self.name = n
+#         self.age = 18
+#     def __repr__(self):
+#         return self.name 
+
+#     def __gt__(self, other):
+#         return self.age>other.age
+
+# h1 = Human("John")
+# h2 = Human("James")
+# h3 = Human("Bella")
+# # if h1>h2:
+# #     print(h1.name)
+# # else:
+# #     print(h2.name) 
+
+# humans = [h1, h2, h3]
+# humans.sort()
+# print(humans)
+
+##############################################
+
+
+# class Number:
+#     def __init__(self, n=0):
+#         self.num = n
+#     def __add__(self, other):
+#         return Number(self.num + other.num)
+#     def __str__(self):
+#         return str(self.num)
+#     def __sub__(self, other):
+#         return Number(self.num - other.num)
+#     def __gt__(self, other):
+#         return self.num > other.num
+
+
+# if __name__=="__main__":
+#     n1 = Number(10)
+#     n2 = Number(20)
+#     n3 = n1 + n2
+#     print(n3)
+#     n3 = n1 - n2
+#     print(n3)
+#     print(n1>n2)
+
+
+
+##############################################
+
+
+
+
+
+# class Stack:
+#     def __init__(self, c):
+#         self.count = c
+#         self.ml = []
+
+#     def __str__(self):
+#         return str(self.ml)
+
+#     def push(self, num):
+#         if len(self.ml) >= self.count:
+#             print("No space for new element")
+#         else:
+#             self.ml.append(num)
+    
+#     def pop(self):
+#         if not self.ml:
+#             print("No element to remove")
+#         else:
+#             return self.ml.pop()
+
+
+# s = Stack(5) 
+# s.push(1)
+# s.push(2)
+# s.push(3)
+# s.push(4) 
+# s.push(5)
+# print(s)
+# print(s.pop()) 
+# print(s.pop())  
+# print(s.pop()) 
+# print(s.pop()) 
+# print(s.pop()) 
+
+##############################################
+
+# import time
+# import random
+
+# count = int(input("Enter working time"))
+# i = 0
+# md = {}
+# while i < count:
+#     num = random.randint(1, 91)
+#     print(num)
+#     if num in md:
+#         md[num] += 1
+#     else:
+#         md[num] = 1
+#     time.sleep(1)
+#     i += 1
+# ml = list(md.items())
+# ml.sort(key=lambda x:x[1])
+# print(ml[-1][0])
+
+
+
+
+##################################
+
+class University:
+    def __init__(self, n, l, y, c):
+        self.name = n
+        self.location = l
+        self.setup_year = int(y)
+        self.student_count = int(c)
+
+    def __repr__(self):
+        return f"{self.name}    {self.location}    {self.setup_year}    {self.student_count:,}"
+
+
+def read_universities(file_path):
+    universities = []
+    with open(file_path, "r") as file:
+        for line in file:
+            parts = line.strip().split("    ")
+            if len(parts) == 4:
+                universities.append(University(*parts))
+    return universities
+
+
+def write_sorted_universities(file_path, universities):
+    with open(file_path, "w") as file:
+        for uni in universities:
+            file.write(str(uni) + "\n")
+
+
+def sort_universities(universities, key):
+    return sorted(universities, key=lambda x: getattr(x, key))
+
+
+def main():
+    input_file = "university.txt"
+    output_file = "sorted_university.txt"
+    
+    universities = read_universities(input_file)
+    
+    sort_key = input("Enter sorting key (name, location, setup_year, student_count): ")
+    if sort_key not in ["name", "location", "setup_year", "student_count"]:
+        print("Invalid key.")
+    
+    universities = sort_universities(universities, sort_key)
+    write_sorted_universities(output_file, universities)
+    print("Sorting complete. Check sorted_university.txt")
+
+
+if __name__ == "__main__":
+    main()
+
+#############################
+
+
+class Stack:
+    def __init__(self, c):
+        self.count = c
+        self.ml = []
+        self.index = 0  
+
+    def __str__(self):
+        return str(self.ml[self.index:])  
+
+    def push(self, num):
+        if len(self.ml) - self.index >= self.count:
+            print("No space for new element")
+        else:
+            self.ml.append(num)  
+
+    def pop(self):
+        if self.index == len(self.ml):
+            print("No element to remove")
+        else:
+            val = self.ml[self.index] 
+            self.index += 1  
+            return val
+
+
+q = Stack(5)
+q.push(1)
+q.push(2)
+q.push(3)
+print(q)
+
+q.push(4)
+print(q)
+q.push(5)
+print(q)
+print(q.pop()) 
+print(q) 
+print(q.pop()) 
+print(q) 
+print(q.pop())  
+print(q.pop())  
+print(q.pop())  
 
