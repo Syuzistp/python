@@ -1,10 +1,10 @@
-MIT    USA    1861    11,500
-Stanford University    USA    1885    17,000
-Harvard University    USA    1636    21,000
 ETH Zurich    Switzerland    1855    24,000
-University of Cambridge    UK    1209    24,500
-University of Oxford    UK    1096    26,000
-Tsinghua University    China    1911    36,000
+Harvard University    USA    1636    21,000
+MIT    USA    1861    11,500
 National University    Singapore    1905    42,000
+Stanford University    USA    1885    17,000
+Tsinghua University    China    1911    36,000
+University of Cambridge    UK    1209    24,500
 University of Melbourne    Australia    1853    52,000
+University of Oxford    UK    1096    26,000
 University of Toronto    Canada    1827    97,000

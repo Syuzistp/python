@@ -263,15 +263,24 @@
 
 # class Number:
 #     def __init__(self, n=0):
-#         self.num = n
+#         self.__num = n
+
+#     @property
+#     def num(self):
+#         return self.__num
+
+#     @num.setter
+#     def num(self, n):
+#         self.__num = n
+
 #     def __add__(self, other):
-#         return Number(self.num + other.num)
+#         return Number(self.__num + other.__num)
 #     def __str__(self):
-#         return str(self.num)
+#         return str(self.__num)
 #     def __sub__(self, other):
-#         return Number(self.num - other.num)
+#         return Number(self.__num - other.__num)
 #     def __gt__(self, other):
-#         return self.num > other.num
+#         return self.__num > other.__num
 
 
 # if __name__=="__main__":
@@ -351,97 +360,297 @@
 
 ##################################
 
-class University:
-    def __init__(self, n, l, y, c):
-        self.name = n
-        self.location = l
-        self.setup_year = int(y)
-        self.student_count = int(c)
+# class University:
+#     def __init__(self, n, l, y, c):
+#         self.name = n
+#         self.location = l
+#         self.setup_year = int(y)
+#         self.student_count = int(c)
 
-    def __repr__(self):
-        return f"{self.name}    {self.location}    {self.setup_year}    {self.student_count:,}"
-
-
-def read_universities(file_path):
-    universities = []
-    with open(file_path, "r") as file:
-        for line in file:
-            parts = line.strip().split("    ")
-            if len(parts) == 4:
-                universities.append(University(*parts))
-    return universities
+#     def __repr__(self):
+#         return f"{self.name}    {self.location}    {self.setup_year}    {self.student_count:,}"
 
 
-def write_sorted_universities(file_path, universities):
-    with open(file_path, "w") as file:
-        for uni in universities:
-            file.write(str(uni) + "\n")
+# def read_universities(file_path):
+#     universities = []
+#     with open(file_path, "r") as file:
+#         for line in file:
+#             parts = line.strip().split("    ")
+#             if len(parts) == 4:
+#                 universities.append(University(*parts))
+#     return universities
 
 
-def sort_universities(universities, key):
-    return sorted(universities, key=lambda x: getattr(x, key))
+# def write_sorted_universities(file_path, universities):
+#     with open(file_path, "w") as file:
+#         for uni in universities:
+#             file.write(str(uni) + "\n")
 
 
-def main():
-    input_file = "university.txt"
-    output_file = "sorted_university.txt"
+# def sort_universities(universities, key):
+#     return sorted(universities, key=lambda x: getattr(x, key))
+
+
+# def main():
+#     input_file = "university.txt"
+#     output_file = "sorted_university.txt"
     
-    universities = read_universities(input_file)
+#     universities = read_universities(input_file)
     
-    sort_key = input("Enter sorting key (name, location, setup_year, student_count): ")
-    if sort_key not in ["name", "location", "setup_year", "student_count"]:
-        print("Invalid key.")
+#     sort_key = input("Enter sorting key (name, location, setup_year, student_count): ")
+#     if sort_key not in ["name", "location", "setup_year", "student_count"]:
+#         print("Invalid key.")
     
-    universities = sort_universities(universities, sort_key)
-    write_sorted_universities(output_file, universities)
-    print("Sorting complete. Check sorted_university.txt")
+#     universities = sort_universities(universities, sort_key)
+#     write_sorted_universities(output_file, universities)
+#     print("Sorting complete. Check sorted_university.txt")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
-#############################
-
-
-class Stack:
-    def __init__(self, c):
-        self.count = c
-        self.ml = []
-        self.index = 0  
-
-    def __str__(self):
-        return str(self.ml[self.index:])  
-
-    def push(self, num):
-        if len(self.ml) - self.index >= self.count:
-            print("No space for new element")
-        else:
-            self.ml.append(num)  
-
-    def pop(self):
-        if self.index == len(self.ml):
-            print("No element to remove")
-        else:
-            val = self.ml[self.index] 
-            self.index += 1  
-            return val
+# #############################
 
 
-q = Stack(5)
-q.push(1)
-q.push(2)
-q.push(3)
-print(q)
+# class Stack:
+#     def __init__(self, c):
+#         self.count = c
+#         self.ml = []
+#         self.index = 0  
 
-q.push(4)
-print(q)
-q.push(5)
-print(q)
-print(q.pop()) 
-print(q) 
-print(q.pop()) 
-print(q) 
-print(q.pop())  
-print(q.pop())  
-print(q.pop())  
+#     def __str__(self):
+#         return str(self.ml[self.index:])  
 
+#     def push(self, num):
+#         if len(self.ml) - self.index >= self.count:
+#             print("No space for new element")
+#         else:
+#             self.ml.append(num)  
+
+#     def pop(self):
+#         if self.index == len(self.ml):
+#             print("No element to remove")
+#         else:
+#             val = self.ml[self.index] 
+#             self.index += 1  
+#             return val
+
+
+# q = Stack(5)
+# q.push(1)
+# q.push(2)
+# q.push(3)
+# print(q)
+
+# q.push(4)
+# print(q)
+# q.push(5)
+# print(q)
+# print(q.pop()) 
+# print(q) 
+# print(q.pop()) 
+# print(q) 
+# print(q.pop())  
+# print(q.pop())  
+# print(q.pop())  
+
+
+################################
+
+
+# class Human:
+#     def __init__(self, a):
+#         self.__age = a
+
+#     def get_age(self):
+#         return self.__age
+
+#     def set_age(self, a):
+#         if type(a) != int or (a > 160 or a<0):
+#             self.__age = 1
+#         else:
+#             self.__age = a
+
+# h1 = Human(30)
+# h1.set_age(90)
+# print(h1.get_age())
+
+
+
+
+# class Human:
+#     def __init__(self, a):
+#         self.__age = a
+
+#     @property
+#     def age(self):
+#         return self.__age
+
+#     @age.setter
+#     def age(self, a):
+#         if type(a) != int or (a > 160 or a<0):
+#             self.__age = 1
+#         else:
+#             self.__age = a
+
+# h1 = Human(18)
+# h1.age = 35
+# print(h1.age)
+# h1.age = 3500
+# print(h1.age)
+
+
+########################################
+
+# class MString:
+#     def __init__(self, mstr):
+#         self.string = mstr
+
+#     def split(self):
+#         result = []
+#         word = ''
+        
+#         for i in self.string:
+#             if i == ' ':
+#                 if word: 
+#                     result.append(word)
+#                     word = ''
+#             else:
+#                 word += i
+        
+#         if word:
+#             result.append(word)
+        
+#         return result
+
+# mstr = MString("Hello world")
+# print(mstr.split()) 
+
+
+# class MString:
+#     def __init__(self, string):
+#         self.s = string
+    
+#     def upper(self):
+#         result = ""
+#         for i in self.s:
+#             if 'a' <= i <= 'z': 
+#                 result += chr(ord(i) - 32) 
+#             else:
+#                 result += i  
+#         return result
+
+# mstr = MString("hello")
+# print(mstr.upper())  
+
+
+# class MString:
+#     def __init__(self, string):
+#         self.s = string
+    
+#     def lower(self):
+#         result = ""
+#         for i in self.s:
+#             if 'A' <= i <= 'Z':  
+#                 result += chr(ord(i) + 32)  
+#             else:
+#                 result += i  
+#         return result
+
+# mstr = MString("HELLO")
+# print(mstr.lower())  
+
+
+# class MString:
+#     def __init__(self, string):
+#         self.s = string
+    
+#     def is_digit(self):
+#         digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+        
+#         if not self.s:
+#             return False
+        
+#         for i in self.s:
+#             if i not in digits:
+#                 return False
+        
+#         return True
+
+# print(MString("123").is_digit())  
+# print(MString("123a").is_digit()) 
+
+
+# class MString:
+#     def __init__(self, string):
+#         self.s = string
+    
+#     def is_alpha(self):
+#         alphabets = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+#                      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}
+        
+#         if not self.s:
+#             return False
+        
+#         for i in self.s:
+#             if i not in alphabets:
+#                 return False
+        
+#         return True
+
+# print(MString("abc").is_alpha())
+# print(MString("abc123").is_alpha()) 
+
+
+# class MString:
+#     def __init__(self, t):
+#         self.text = t
+    
+#     def count(self, x):
+#         count = 0
+        
+#         for i in range(len(self.text) - len(x) + 1):
+#             if self.text[i:i + len(x)] == x:
+#                 count += 1
+#         return count
+
+# my_string = MString("hello world, hello")
+# x = "hello"
+# print(my_string.count(x))
+
+
+# class MString:
+#     def __init__(self, t):
+#         self.text = t
+
+#     def replace(self, x1, x2):
+#         result = ""
+#         i = 0
+#         while i < len(self.text):
+#             if self.text[i:i+len(x1)] == x1:
+#                 result += x2
+#                 i += len(x1)  
+#             else:
+#                 result += self.text[i]
+#                 i += 1
+#         return result
+
+# my_string = MString("I like apples")
+# x1 = "apples"
+# x2 = "bananas"
+# print(my_string.replace(x1, x2))
+
+
+# class MString:
+#     def __init__(self, t):
+#         self.text = t
+
+#     def endswith(self, x):
+#         if self.text[len(self.text)-len(x):] == x:
+#             return True
+#         else:
+#             return False
+
+# my_string = MString("Hello, welcome to my world.")
+# x = "my world."
+# print(my_string.endswith(x))
