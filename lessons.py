@@ -654,3 +654,50 @@
 # my_string = MString("Hello, welcome to my world.")
 # x = "my world."
 # print(my_string.endswith(x))
+
+
+# class Polygon:
+#     def __init__(self, *args):
+#         self.sides = list(args)
+
+#     def perimeter(self):
+#         return sum(self.sides)
+
+#     def area(self):
+#         pass
+
+
+# class Rectangle(Polygon):
+#     def __init__(self, *args):
+#         if len(args) != 2:
+#             self.sides = [1,1]
+#         else:
+#             super().__init__(*args)
+
+#     def perimeter(self):
+#         return 2 * sum(self.sides)
+
+#     def area(self):
+#         return self.sides[0]*self.sides[1]
+
+
+# class Triangle(Polygon):
+#     def __init__(self, *args):
+#         if len(args) != 3:
+#             self.sides = [1,1,1]
+#         else:
+#             super().__init__(*args)
+
+#     def area(self):
+#         a,b,c = self.sides[0], self.sides[1], self.sides[2]
+#         p = (a + b + c) // 2
+#         return pow(p*(p-a)*(p-b)*(p-c),0.5)
+
+        
+# r1 = Rectangle(10, 20)
+# print(r1.perimeter())
+# print(r1.area())
+# t1 = Triangle(15, 20, 30)
+# print(t1.perimeter())
+# print(t1.area())
+        
